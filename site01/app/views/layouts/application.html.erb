@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lubwils-family</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="main-page-content"> 
+		<div class ="container">
+			<nav>
+				<ul class ="nav nav-tabs">
+				<li><%= link_to 'Home', home_index_path %></li>
+				<li><%= link_to 'About Us', home_about_us_path %></li>
+				<li><%= link_to 'Contact Us', home_contact_us_path %></li>
+				<li><%= link_to 'help?', home_help_path %></li>
+				<% if user_signed_in? %>
+				<li><%= link_to 'Profile', home_profile_path %></li>
+				<li><%= link_to 'Gallery', home_galley_path %></li>
+				Logged in as <strong><%= current_user.email%></strong>
+				<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+				<% else %>
+				<li><%= link_to 'Login', new_user_session_path %></li>
+				<li><%= link_to 'SignUp', new_user_registration_path%></li>
+				<li><% end %>
+				
+				</ul>
+			</nav>
+		</div>
+	
+<%= yield %>
+		
+	</div>
+
+</body>
+</html>
