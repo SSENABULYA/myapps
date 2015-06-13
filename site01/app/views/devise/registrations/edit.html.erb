@@ -13,7 +13,10 @@
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name %>
   </div>
-
+  <div class="field">
+    <%= f.label :Country %><br />
+    <%= f.text_field :Country %>
+  </div>
 
   <div class="field">
     <%= f.label :date_of_birth %><br />
@@ -22,9 +25,9 @@
 
 
   <div class="field">
-    <%= f.label :is_femaile, "Gender" %><br />
-    <%= f.radio_button :is_femaile, true %><%= f.label :is_femaile, "Female"%>
-    <%= f.radio_button :is_femaile, false %><%= f.label :is_femaile, "Male" %>
+    <%= f.label :is_female, "Gender" %><br />
+    <%= f.radio_button :is_female, true %><%= f.label :is_female, "Female"%>
+    <%= f.radio_button :is_female, false %><%= f.label :is_female, "Male" %>
   </div>
 
 
@@ -52,9 +55,11 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label 'avatar', class: 'col-sm-2 control-label'  %><br />
-    <%= f.file_field :avatar %>
+  <div class="form-group">
+        <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
+        <div class="col-sm-6">
+            <%= f.file_field :avatar %>
+        </div>
   </div>
 
   <div class="actions">

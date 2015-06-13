@@ -7,31 +7,35 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="main-page-content"> 
-		<div class ="container">
-			<nav>
-				<ul class ="nav nav-tabs">
-				<li><%= link_to 'Home', home_index_path %></li>
-				<li><%= link_to 'About Us', home_about_us_path %></li>
-				<li><%= link_to 'Contact Us', home_contact_us_path %></li>
-				<li><%= link_to 'help?', home_help_path %></li>
-				<% if user_signed_in? %>
-				<li><%= link_to 'Profile', home_profile_path %></li>
-				<li><%= link_to 'Gallery', home_galley_path %></li>
-				Logged in as <strong><%= current_user.email%></strong>
-				<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-				<% else %>
-				<li><%= link_to 'Login', new_user_session_path %></li>
-				<li><%= link_to 'SignUp', new_user_registration_path%></li>
-				<li><% end %>
-				
-				</ul>
-			</nav>
+ 
+	<div class ="container">
+		<div class ="nav">
+			<ul class ="nav nav-tabs">
+			<li><%= link_to 'Home', home_index_path %></li>
+			<li><%= link_to 'About Us', home_about_us_path %></li>
+			<li><%= link_to 'Contact Us', home_contact_us_path %></li>
+			<li><%= link_to 'help?', home_help_path %></li>
+			<% if user_signed_in? %>
+			<li><%= link_to 'Profile', home_profile_path %></li>
+			<li><%= link_to 'Gallery', home_galley_path %></li><li>Logged in as <strong><%= current_user.email%></strong></li>
+			<li class="round-image-50"><%= image_tag(current_user.avatar.url(:thumb)) %></li>
+
+			<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+			<% else %>
+			<li><%= link_to 'Login', new_user_session_path %></li>
+			<li><%= link_to 'SignUp', new_user_registration_path%></li>
+
+			<% end %>
+			
+			</ul>
 		</div>
+	</div>
+	
 	
 <%= yield %>
-		
-	</div>
-
+<div class="modal-footer">
+	<p>@copyright 2015 <%= link_to "terms & condtions", "#"%></p>
+	
+</div>
 </body>
 </html>

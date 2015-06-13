@@ -1,2 +1,8 @@
 <h1>Profile page</h1>
-
+	
+	<% if current_user %>
+		<li><%= link_to 'Edit Profile',edit_user_registration_path %></li>
+		
+	<% else %>
+	<li><%= link_to 'Login', new_user_session_path %></li>
+	<% end %>
